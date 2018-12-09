@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
@@ -19,7 +20,14 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if KeychainWrapper.standard.string(forKey: KEY_UID) != nil {
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
 
     
@@ -35,8 +43,6 @@ class SignInVC: UIViewController {
             }else {
                 print("successfully authenticated with facebook")
                 
-                
-                
                 let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 
                 Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
@@ -44,12 +50,14 @@ class SignInVC: UIViewController {
                         print("Unable auth with firebase")
                         return
                     }else {
+                        if let user = authResult {
+                            self.completeSignIn(id: user.user.uid)
+                        }
+                        
                         print("successfully authnticated with firebase")
                     }
-                    
             }
         }
-        
     }
 }
     
@@ -61,6 +69,9 @@ class SignInVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: pwd, completion:  { (user, error) in
             
                 if error == nil {
+                    if let user = user {
+                        self.completeSignIn(id: user.user.uid)
+                    }
                     print("successfully login")
                 }
                 else{
@@ -70,6 +81,9 @@ class SignInVC: UIViewController {
                             print(error.debugDescription)
                         }
                         else{
+                            if let user = user {
+                                self.completeSignIn(id: user.user.uid)
+                            }
                             print("successfully crate user with firebase")
                         }
                     })
@@ -77,8 +91,15 @@ class SignInVC: UIViewController {
                 
             })
         }
-        
     }
+    
+    func completeSignIn(id: String) {
+        let keycahin = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("itay: data save in keychain \(keycahin)")
+        performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    
+    
     
     
 
