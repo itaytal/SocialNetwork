@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32CBB8DD4037F83C25728138 /* Pods_SocialTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6B6F15CF2A2F2B8E31B7D /* Pods_SocialTest.framework */; };
+		BB42A29221BE3EEB00050D26 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29121BE3EEB00050D26 /* FancyView.swift */; };
 		BB507EFB21B65D1800E7C50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB507EFA21B65D1800E7C50A /* AppDelegate.swift */; };
 		BB507EFD21B65D1800E7C50A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB507EFC21B65D1800E7C50A /* SignInVC.swift */; };
 		BB507F0021B65D1800E7C50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB507EFE21B65D1800E7C50A /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		3897DD75E78D6499DB375A04 /* Pods-SocialTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTest/Pods-SocialTest.release.xcconfig"; sourceTree = "<group>"; };
 		83D44163D2B9F6106D853DF0 /* Pods-SocialTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTest/Pods-SocialTest.debug.xcconfig"; sourceTree = "<group>"; };
+		BB42A29121BE3EEB00050D26 /* FancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		BB507EF721B65D1800E7C50A /* SocialTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB507EFA21B65D1800E7C50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB507EFC21B65D1800E7C50A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB42A28E21BE3DC700050D26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB42A29121BE3EEB00050D26 /* FancyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BB507EEE21B65D1800E7C50A = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		BB507EF921B65D1800E7C50A /* SocialTest */ = {
 			isa = PBXGroup;
 			children = (
+				BB42A28E21BE3DC700050D26 /* View */,
 				BB507F1021B90C9A00E7C50A /* Util */,
 				BB507F0F21B6636200E7C50A /* Controller */,
 				BB507F0E21B6634800E7C50A /* Model */,
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB507F1421B90F6700E7C50A /* FeedVC.swift in Sources */,
+				BB42A29221BE3EEB00050D26 /* FancyView.swift in Sources */,
 				BB507EFD21B65D1800E7C50A /* SignInVC.swift in Sources */,
 				BB507EFB21B65D1800E7C50A /* AppDelegate.swift in Sources */,
 				BB507F1221B90CB600E7C50A /* Constants.swift in Sources */,
