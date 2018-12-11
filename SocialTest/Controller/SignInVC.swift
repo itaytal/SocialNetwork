@@ -54,8 +54,6 @@ class SignInVC: UIViewController {
                             let userData = ["provider":credential.provider]
                             self.completeSignIn(id: user.user.uid, userData: userData)
                         }
-                        
-                        
                         print("successfully authnticated with firebase")
                     }
             }

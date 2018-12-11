@@ -17,11 +17,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         
         return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
@@ -39,9 +40,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-       
-        
-
+        DataServices.ds.REF_POSTS.observe(DataEventType.value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject]
+            
+            
+        })
         // Do any additional setup after loading the view.
     }
     
