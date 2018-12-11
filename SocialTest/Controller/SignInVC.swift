@@ -51,8 +51,10 @@ class SignInVC: UIViewController {
                         return
                     }else {
                         if let user = authResult {
-                            self.completeSignIn(id: user.user.uid)
+                            let userData = ["provider":credential.provider]
+                            self.completeSignIn(id: user.user.uid, userData: userData)
                         }
+                        
                         
                         print("successfully authnticated with firebase")
                     }
@@ -70,7 +72,8 @@ class SignInVC: UIViewController {
             
                 if error == nil {
                     if let user = user {
-                        self.completeSignIn(id: user.user.uid)
+                        let userData = ["provider": user.user.providerID]
+                        self.completeSignIn(id: user.user.uid, userData: userData)
                     }
                     print("successfully login")
                 }
@@ -82,7 +85,8 @@ class SignInVC: UIViewController {
                         }
                         else{
                             if let user = user {
-                                self.completeSignIn(id: user.user.uid)
+                                let userData = ["provider": user.user.providerID]
+                                self.completeSignIn(id: user.user.uid, userData: userData)
                             }
                             print("successfully crate user with firebase")
                         }
@@ -93,7 +97,10 @@ class SignInVC: UIViewController {
         }
     }
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        
+        DataServices.ds.createFirebaseDBUser(uid: id, userData: userData)
+        
         let keycahin = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("itay: data save in keychain \(keycahin)")
         performSegue(withIdentifier: "goToFeed", sender: nil)
