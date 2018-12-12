@@ -10,8 +10,8 @@
 		32CBB8DD4037F83C25728138 /* Pods_SocialTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A6B6F15CF2A2F2B8E31B7D /* Pods_SocialTest.framework */; };
 		BB42A29221BE3EEB00050D26 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29121BE3EEB00050D26 /* FancyView.swift */; };
 		BB42A29421BE5ACF00050D26 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29321BE5ACF00050D26 /* PostCell.swift */; };
-		BB42A29621BF8A9000050D26 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29521BF8A9000050D26 /* File.swift */; };
 		BB42A29921BF8E4B00050D26 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29821BF8E4B00050D26 /* DataServices.swift */; };
+		BB42A29B21C0DA5000050D26 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42A29A21C0DA5000050D26 /* Post.swift */; };
 		BB507EFB21B65D1800E7C50A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB507EFA21B65D1800E7C50A /* AppDelegate.swift */; };
 		BB507EFD21B65D1800E7C50A /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB507EFC21B65D1800E7C50A /* SignInVC.swift */; };
 		BB507F0021B65D1800E7C50A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB507EFE21B65D1800E7C50A /* Main.storyboard */; };
@@ -27,8 +27,8 @@
 		83D44163D2B9F6106D853DF0 /* Pods-SocialTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTest/Pods-SocialTest.debug.xcconfig"; sourceTree = "<group>"; };
 		BB42A29121BE3EEB00050D26 /* FancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		BB42A29321BE5ACF00050D26 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		BB42A29521BF8A9000050D26 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		BB42A29821BF8E4B00050D26 /* DataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
+		BB42A29A21C0DA5000050D26 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BB507EF721B65D1800E7C50A /* SocialTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB507EFA21B65D1800E7C50A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB507EFC21B65D1800E7C50A /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		BB507F0E21B6634800E7C50A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BB42A29521BF8A9000050D26 /* File.swift */,
+				BB42A29A21C0DA5000050D26 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,10 +286,10 @@
 			files = (
 				BB507F1421B90F6700E7C50A /* FeedVC.swift in Sources */,
 				BB42A29221BE3EEB00050D26 /* FancyView.swift in Sources */,
-				BB42A29621BF8A9000050D26 /* File.swift in Sources */,
 				BB42A29921BF8E4B00050D26 /* DataServices.swift in Sources */,
 				BB507EFD21B65D1800E7C50A /* SignInVC.swift in Sources */,
 				BB507EFB21B65D1800E7C50A /* AppDelegate.swift in Sources */,
+				BB42A29B21C0DA5000050D26 /* Post.swift in Sources */,
 				BB507F1221B90CB600E7C50A /* Constants.swift in Sources */,
 				BB42A29421BE5ACF00050D26 /* PostCell.swift in Sources */,
 			);
