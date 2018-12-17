@@ -13,7 +13,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SignInVC" customModule="SocialTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="150" id="dym-eR-78O"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-kS-6Xr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-kS-6Xr">
                                 <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="if you haven't signed in before, an account will be automatically created for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-1U-o5h">
@@ -200,6 +200,9 @@
                                                     <constraint firstAttribute="height" constant="60" id="iG7-39-x0X"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="add-post"/>
+                                                <connections>
+                                                    <action selector="postBtnTapped:" destination="DC0-86-WQU" eventType="touchUpInside" id="hFg-ZL-9SQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -332,6 +335,7 @@
                         <viewLayoutGuide key="safeArea" id="Igq-uB-TIz"/>
                     </view>
                     <connections>
+                        <outlet property="captionTxt" destination="DHh-61-rYa" id="cGc-1t-5Qi"/>
                         <outlet property="imageAdd" destination="ikE-mR-Lxy" id="K9j-eD-AZV"/>
                         <outlet property="tableView" destination="jmZ-TO-qhs" id="faA-YJ-eJe"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="hhr-2U-ylL"/>

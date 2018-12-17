@@ -20,11 +20,11 @@ class DataServices {
 
     // DB refernces
     private var _REF_BASE = DB_BASE
-     var _REF_POSTS = DB_BASE.child("posts")
+    private var _REF_POSTS = DB_BASE.child("posts")
     private var _REF_USERS = DB_BASE.child("users")
     
     //Storage refrences
-    private var _REF_POST_IMAGES = STORAGE_BASE.child("psot-pics")
+    private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
     
     var REF_BASE : DatabaseReference {
         return _REF_BASE

@@ -42,7 +42,7 @@ class PostCell: UITableViewCell {
                         print(error.debugDescription)
                     } else {
                         // Data for "images/island.jpg" is returned
-                        print ("download from firebase")
+                        print("download from firebase")
                         if let image = UIImage(data: data!){
                             self.postImage.image = image
                             let snImage = post.imageUrl as NSString
@@ -51,6 +51,5 @@ class PostCell: UITableViewCell {
                     }
                 }
         }
-        
     }
 }

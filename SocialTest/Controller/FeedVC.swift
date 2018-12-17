@@ -17,6 +17,10 @@ UINavigationControllerDelegate {
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected  = false
+    
+    
+    @IBOutlet weak var captionTxt: UITextField!
     
     @IBOutlet weak var imageAdd: UIImageView!
     override func viewDidLoad() {
@@ -98,6 +102,7 @@ UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageAdd.image = image
+            imageSelected = true
         }
         else {
             print("itay: a valid image wasn't selected")
@@ -109,5 +114,40 @@ UINavigationControllerDelegate {
     @IBAction func AddImageTapped(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func postBtnTapped(_ sender: Any) {
+        guard let caption = captionTxt.text, caption != ""  else {
+            print("itay: caption is empty")
+            return
+        }
+        
+        guard let img = imageAdd.image, imageSelected == true else {
+            print("itay: image is empty")
+            return
+        }
+        
+        if let imageData = img.jpegData(compressionQuality: 0.2) {
+        
+            let imgUid = NSUUID().uuidString
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+        
+            DataServices.ds.REF_POST_IMAGES.child(imgUid).putData(imageData, metadata: metadata) { (metadata2, error) in
+                if error != nil {
+                    print("itay: error upload")
+                }
+                else{
+                    print("itay: successfully upload")
+                   let downloadUrl = metadata2?.path
+                    print(downloadUrl!)
+                }
+                
+            }
+        }
+       
+    }
+    
+    
     
 }
