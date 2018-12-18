@@ -13,7 +13,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SignInVC" customModule="SocialTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="150" id="dym-eR-78O"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-kS-6Xr">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-kS-6Xr">
                                 <rect key="frame" x="0.0" y="592" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="if you haven't signed in before, an account will be automatically created for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-1U-o5h">
@@ -310,6 +310,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="caption" destination="I16-6H-bGH" id="LnA-sZ-fpd"/>
+                                            <outlet property="likeImg" destination="Thy-sv-OKl" id="Wid-u8-laa"/>
                                             <outlet property="likesLbl" destination="uMK-FL-aAU" id="agT-4x-MLD"/>
                                             <outlet property="postImage" destination="UIf-Hh-lGF" id="WRw-0E-oNS"/>
                                             <outlet property="profileImage" destination="mXq-00-GEi" id="qXD-tT-sSw"/>

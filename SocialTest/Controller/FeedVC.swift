@@ -61,13 +61,13 @@ UINavigationControllerDelegate {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            let imgns = postc.imageUrl as NSString
-            if let img = FeedVC.imageCache.object(forKey: imgns){
-                cell.configeCell(post: postc, img: img)
-            }
-            else{
+         //   let imgns = postc.imageUrl as NSString
+          //  if let img = FeedVC.imageCache.object(forKey: imgns){
+           //     cell.configeCell(post: postc, img: img)
+           // }
+            //else{
                 cell.configeCell(post: postc, img: nil)
-            }
+         //   }
         
             return cell
         }
@@ -128,7 +128,7 @@ UINavigationControllerDelegate {
         }
         
         if let imageData = img.jpegData(compressionQuality: 0.2) {
-        
+
             let imgUid = NSUUID().uuidString
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
@@ -139,13 +139,37 @@ UINavigationControllerDelegate {
                 }
                 else{
                     print("itay: successfully upload")
-                   let downloadUrl = metadata2?.path
-                    print(downloadUrl!)
+                    DataServices.ds.REF_POST_IMAGES.child(imgUid).downloadURL{(url, error) in
+                        if error != nil  {
+                            // Uh-oh, an error occurred!
+                            return
+                        }
+                        else{
+                            if let dow = url?.absoluteString {
+                                self.postToFirebase(img: dow)
+                            }
+                        }
+                       
+                    }
+                    }
                 }
-                
             }
-        }
-       
+    }
+    
+    func postToFirebase(img:String) {
+        let post: Dictionary<String, AnyObject> = [
+            "caption": captionTxt.text! as AnyObject,
+            "imageUrl": img as AnyObject,
+            "likes": 0 as AnyObject
+        ]
+        
+        DataServices.ds.REF_POSTS.childByAutoId().setValue(post)
+        
+        captionTxt.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
     }
     
     
